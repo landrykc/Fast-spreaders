@@ -48,9 +48,10 @@ MAR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_MAR.x
 
 %% Load Core Measurement Data
 
-EPR_Core_Data = readtable('Measurements_on_the_Cores_-_DSDP_ODP_and_IODP_Legs_1_to_312)EPR.xlsx');
+EPR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_EPR.xlsx');
+%why is this not working
 
-MAR_Core_Data = readtable('Measurements_on_the_Cores_-_DSDP_ODP_and_IODP_Legs_1_to_312) MAR.xlsx');
+MAR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_MAR.xlsx');
 
 
 %% Load Earthquake Data
