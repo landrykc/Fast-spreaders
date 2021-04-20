@@ -10,6 +10,7 @@ addpath('Data Files');
 %       Leg 201 density & P wave velocity
 %       Heat flow
 %       Locations of Earthquakes >5.0
+%       Volcanic Glasses
 
 %MAR Ridge Data
 %       Leg 306 density & P wave velocity
@@ -41,12 +42,14 @@ MAR_PWV_306 = readtable(filename);
 
 
 %% Load Heat Flow Data
+% rate of thermal energy transfer
 
 EPR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_EPR.xlsx');
 
 MAR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_MAR.xlsx');
 
 %% Load Core Measurement Data
+% depth
 
 EPR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_EPR.xlsx');
 %why is this not working
