@@ -22,6 +22,12 @@ addpath('Data Files');
 %       Locations of Earthquakes >0
 %       Whole Rock Chem Data
 
+%% Load Depth
+
+EPR_depth_data = readtable('EPR_transect.txt');
+MAR_depth_data = readtable('MAR_transect.txt');
+
+
 %% Load Density Files
 % Database: IODP
 
