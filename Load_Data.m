@@ -22,10 +22,10 @@ addpath('Data Files');
 %       Locations of Earthquakes >0
 %       Whole Rock Chem Data
 
-%% Load Depth
+%% Load Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly
 
-EPR_depth_data = readtable('EPR_transect.txt');
-MAR_depth_data = readtable('MAR_transect.txt');
+EPR_depth_data = readtable('EPR.txt');
+MAR_depth_data = readtable('MAR.txt');
 
 
 %% Load Density Files
