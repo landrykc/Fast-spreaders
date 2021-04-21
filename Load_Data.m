@@ -82,7 +82,7 @@ MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx');
 % Dataabase: PetDB
 
 % EPR
-EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA');
+EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA','Data',3);
 
 % MAR
 MAR_Chem_Data = readtable('MAR_Chem_Data_WholeRock.txt');
