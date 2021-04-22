@@ -22,11 +22,35 @@ addpath('Data Files');
 %       Locations of Earthquakes >0
 %       Whole Rock Chem Data
 
+
 %% Load Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly
 
+% EPR
 EPR_depth_data = readtable('EPR.txt');
-MAR_depth_data = readtable('MAR.txt');
+EPR_depth_data.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'FAA', 'MA', 'GA', 'Depth'};
+EPR_depth_data.Properties.VariableUnits = {'deg', 'deg', 'km', 'mgal', 'nT', 'mgal', 'm'};
 
+% MAR
+MAR_depth_data = readtable('MAR.txt');
+MAR_depth_data.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'MA', 'FAA', 'GA', 'Depth'};
+MAR_depth_data.Properties.VariableUnits = {'deg', 'deg', 'km', 'nT', 'mgal', 'mgal', 'm'};
+MAR_depth_data = movevars(MAR_depth_data, 'FAA', 'Before', 'MA'); % switch FAA and MA columns to have consistent table structure
+
+%   FAA - Free Air Anomaly
+%   MA  - Magnetic Anomaly
+%   GA  - Gravity Anomaly
+
+%% Transects Depth
+
+% EPR
+EPR_transect = readtable('EPR_transect.txt');
+EPR_transect.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'Depth'};
+EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'm', 'm'};
+
+% MAR
+MAR_transect = readtable('MAR_transect.txt');
+MAR_transect.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'Depth'};
+EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'm', 'm'};
 
 %% Load Density Files
 % Database: IODP
@@ -82,7 +106,7 @@ MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx');
 % Dataabase: PetDB
 
 % EPR
-EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA');
+EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA.xlsx', 'Sheet', 'Data');
 
 % MAR
 MAR_Chem_Data = readtable('MAR_Chem_Data_WholeRock.txt');
