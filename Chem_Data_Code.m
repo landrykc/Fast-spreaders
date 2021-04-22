@@ -1,27 +1,27 @@
+%% EESC6664 - Environmental Data Exploration & Analysis
+% Team project
+% Char, Sky, Kameko, Adam
+
+% Chem_Data_Code.m
+
 %% Chem Data
+% Lon, Lat, MgO, SiO2
 
-%variables to pull:
-%long and lat
-%MgO
-%SiO2
+clear
+clc
 
-%we need to remove anything with NaN in these columns
+load all_data.mat EPR_Chem_extract MAR_Chem_extract
 
+% EPR_Chem_extract & MAR_Chem_extract
+%       Lat
+%       Lon
+%       MgO
+%       SiO2
 
 %% EPR
 
 
 
-
-
-
 %% MAR
 
-
-MAR_CHEM_Lat = MAR_Chem_Data(:,6);
-MAR_CHEM_Lon = MAR_Chem_Data(:,7);
-
-MAR_CHEM_MgO = MAR_Chem_Data(:,29);
-
-%%
 

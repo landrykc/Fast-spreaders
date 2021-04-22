@@ -2,15 +2,27 @@
 % Team project
 % Char, Sky, Kameko, Adam
 
+% Transect_Data_Code.m
+
 %% Transect Data 
-% (Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly)
+% Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly
 
 clear
 clc
 
 load all_data.mat EPR_depth_data MAR_depth_data
 
-% Data check
+% EPR_depth_data & MAR_depth_data
+%       Lon
+%       Lat
+%       Dist
+%       FAA
+%       MA
+%       GA
+%       Depth
+
+%% Data check
+
 figure
 plot(EPR_depth_data.Dist, EPR_depth_data.Depth)
 
