@@ -2,10 +2,12 @@
 % Team project
 % Char, Sky, Kameko, Adam
 
+% ========================================
 % Transect_Data_Code.m
+% Create bathymetry plot along transect
+% ========================================
 
 %% Transect Data 
-% Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly
 
 clear
 clc
@@ -16,9 +18,9 @@ load all_data.mat EPR_depth_data MAR_depth_data
 %       Lon
 %       Lat
 %       Dist
-%       FAA
-%       MA
-%       GA
+%       FAA (Free Air Anomaly)
+%       MA (Magnetic Anomaly)
+%       GA (Gravity Anomaly)
 %       Depth
 
 %% Data check

@@ -2,7 +2,10 @@
 % Team project
 % Char, Sky, Kameko, Adam
 
+% ========================================
 % Load_Data.m
+% Read raw data tables and preprocess
+% ========================================
 
 %% Load Data Files
 
@@ -27,6 +30,11 @@ addpath('Data Files')
 %% Load Depth, Gravity Anomaly, Magnetic Anomaly, Free Air Anomaly
 % Geomapapp
 
+% Variables of interest
+%       FAA - Free Air Anomaly
+%       MA  - Magnetic Anomaly
+%       GA  - Gravity Anomaly
+
 % EPR
 EPR_depth_data = readtable('EPR.txt');
 EPR_depth_data.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'FAA', 'MA', 'GA', 'Depth'};
@@ -36,12 +44,7 @@ EPR_depth_data.Properties.VariableUnits = {'deg', 'deg', 'km', 'mgal', 'nT', 'mg
 MAR_depth_data = readtable('MAR.txt');
 MAR_depth_data.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'MA', 'FAA', 'GA', 'Depth'};
 MAR_depth_data.Properties.VariableUnits = {'deg', 'deg', 'km', 'nT', 'mgal', 'mgal', 'm'};
-MAR_depth_data = movevars(MAR_depth_data, 'FAA', 'Before', 'MA'); % switch FAA and MA columns to have consistent table structure
-
-% Variables of interest
-%       FAA - Free Air Anomaly
-%       MA  - Magnetic Anomaly
-%       GA  - Gravity Anomaly
+MAR_depth_data = movevars(MAR_depth_data, 'FAA', 'Before', 'MA'); % switch FAA and MA columns to ensure consistent table structure
 
 %% Load Transects (Do we still need to keep these?)
 % Geomapapp
@@ -109,25 +112,51 @@ MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx');
 %% Chem Data
 % Database: PetDB
 
+% Variables of interest
+%       SiO2
+%       Al2O3
+%       MgO
+%       CaO
+%       Na2O
+%       K2O
+
+% What type of Fe minerals do we need?
+% Original data have FeO/FeOT/Fe2O3/Fe2O3T
+
 % EPR
 EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA.xlsx', 'Sheet', 'Data');
-EPR_Chem_extract = EPR_Chem_Data(:, [5, 6, 24, 14]);
-EPR_Chem_extract.Properties.VariableNames = {'Lat', 'Lon', 'MgO', 'SiO2'};
-EPR_Chem_extract.Properties.VariableUnits = {'deg', 'deg', 'percent', 'percent'};
-EPR_Chem_extract.Lon = str2double(EPR_Chem_extract.Lon); % convert text data into numeric data
-EPR_Chem_extract.Lat = str2double(EPR_Chem_extract.Lat);
-EPR_Chem_extract.MgO = str2double(EPR_Chem_extract.MgO);
-EPR_Chem_extract.SiO2 = str2double(EPR_Chem_extract.SiO2);
+
+EPR_Chem_extract = EPR_Chem_Data(:, [4, 10, 5, 6, 14, 16, 24, 25, 27, 28]);
+EPR_Chem_extract.Properties.VariableNames = {'SampleType', 'RockName',...
+    'Lat', 'Lon', 'SiO2', 'Al2O3', 'MgO', 'CaO', 'Na2O', 'K2O'};
+EPR_Chem_extract.Properties.VariableUnits = {'', '',...
+    'deg', 'deg', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %'};
+
+% convert text data into numeric data
+for column = 3:10
+    EPR_Chem_extract.(EPR_Chem_extract.Properties.VariableNames{column}) = str2double(EPR_Chem_extract{:,column});
+end
+
+EPR_Chem_extract.SampleType = upper(EPR_Chem_extract.SampleType); % convert to uppercase
+index_EPR = EPR_Chem_extract.SampleType == "WHOLE ROCK" & EPR_Chem_extract.RockName == "BASALT";
+EPR_Chem_extract = EPR_Chem_extract(index_EPR, :);
+clear column index_EPR
+
+EPR_Chem_extract = rmmissing(EPR_Chem_extract); % remove missing values
 
 % MAR
 MAR_Chem_Data = readtable('MAR_Chem_Data_WholeRock.txt');
-MAR_Chem_extract = MAR_Chem_Data(:, [6, 7, 29, 19]);
-MAR_Chem_extract.Properties.VariableNames = {'Lat', 'Lon', 'MgO', 'SiO2'};
-MAR_Chem_extract.Properties.VariableUnits = {'deg', 'deg', 'percent', 'percent'};
+MAR_Chem_extract = MAR_Chem_Data(:, [15, 17, 6, 7, 19, 21, 29, 30, 31, 32]);
+MAR_Chem_extract.Properties.VariableNames = {'SampleType', 'RockName',...
+    'Lat', 'Lon', 'SiO2', 'Al2O3', 'MgO', 'CaO', 'NaO', 'K2O'};
+MAR_Chem_extract.Properties.VariableUnits = {'', '',...
+    'deg', 'deg', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %'};
 
-% Variables of interest
-%       MgO
-%       SiO2
+index_MAR = MAR_Chem_extract.SampleType == "WHOLE ROCK" & MAR_Chem_extract.RockName == "BASALT";
+MAR_Chem_extract = MAR_Chem_extract(index_MAR, :);
+clear index_MAR
+
+MAR_Chem_extract = rmmissing(MAR_Chem_extract); % remove missing values
 
 %% Save Workspace
 
