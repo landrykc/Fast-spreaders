@@ -5,6 +5,7 @@
 % ========================================
 % Load_Data.m
 % Read raw data tables and preprocess
+% Output stored in 'all_data.mat'
 % ========================================
 
 %% Load Data Files
@@ -113,11 +114,28 @@ MAR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312
 %% Load Earthquake Data
 % Databse: USGS, collected on Geomapapp
 
+% Variables of interest
+%       Time
+%       Lat
+%       Lon
+%       Magnitude
+%       Depth
+
+opts = spreadsheetImportOptions('NumVariables', 5); % first 5 columns
+opts.DataRange = 'A2'; % starting cell
+opts.VariableTypes = {'string', 'double', 'double', 'double', 'double'};
+
 % EPR
-EPR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_EPR.xlsx');
+EPR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_EPR.xlsx', opts);
+EPR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude', 'Depth'};
+EPR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
 
 % MAR
-MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx');
+MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx', opts);
+MAR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude', 'Depth'};
+MAR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
+
+clear opts
 
 %% Chem Data
 % Database: PetDB
@@ -158,7 +176,7 @@ EPR_Chem_extract = rmmissing(EPR_Chem_extract); % remove missing values
 MAR_Chem_Data = readtable('MAR_Chem_Data_WholeRock.txt');
 MAR_Chem_extract = MAR_Chem_Data(:, [15, 17, 6, 7, 19, 21, 29, 30, 31, 32]);
 MAR_Chem_extract.Properties.VariableNames = {'SampleType', 'RockName',...
-    'Lat', 'Lon', 'SiO2', 'Al2O3', 'MgO', 'CaO', 'NaO', 'K2O'};
+    'Lat', 'Lon', 'SiO2', 'Al2O3', 'MgO', 'CaO', 'Na2O', 'K2O'};
 MAR_Chem_extract.Properties.VariableUnits = {'', '',...
     'deg', 'deg', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %', 'wt %'};
 
