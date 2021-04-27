@@ -59,6 +59,16 @@ MAR_transect = readtable('MAR_transect.txt');
 MAR_transect.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'Depth'};
 EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'km', 'm'};
 
+% NEW Transects
+
+% EPR
+EPR_transect_new = readtable('EPR_transect_new.xlsx');
+
+% MAR
+MAR_transect_new = readtable('MAR_transect_new.xlsx');
+
+% These 'new' tables look similar to EPR_depth_data/MAR_depth_data (generated in the previous section)
+
 %% Load Density Files
 % Database: IODP
 
