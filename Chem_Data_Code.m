@@ -60,9 +60,11 @@ hold off
 subplot(5,2,1)
 plot(EPR_Chem_extract.SiO2, EPR_Chem_extract.MgO,'r.')
 ylabel('MgO')
+title('EPR')
 hold on
 subplot(5,2,2)
 plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.MgO, '.')
+title('MAR')
 subplot(5,2,3)
 plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.K2O(index),'r.')
 ylabel('K_2O')
