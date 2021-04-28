@@ -9,8 +9,8 @@
 
 %% Transect Data 
 
-clear
-clc
+% clear
+% clc
 
 load all_data.mat EPR_depth_data MAR_depth_data
 
