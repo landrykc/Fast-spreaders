@@ -15,7 +15,7 @@ addpath('Data Files')
 
 %% EPR
 
-[X_EPR, Y_EPR, Z_EPR] = grdread2('EPR_all_data.nc');
+[X_EPR, Y_EPR, Z_EPR] = grdread2('EPR_all_data1.nc');
 
 figure
 imagesc(X_EPR, Y_EPR, Z_EPR)
@@ -23,9 +23,15 @@ axis xy
 set(gca,'DataAspectRatio',[1 1 1])
 colorbar
 
+
+%%
+
+
+
+
 %% MAR
 
-[X_MAR, Y_MAR, Z_MAR] = grdread2('MAR_all_data.nc');
+[X_MAR, Y_MAR, Z_MAR] = grdread2('MAR_all_data1.nc');
 
 figure
 imagesc(X_MAR, Y_MAR, Z_MAR)

@@ -1,4 +1,4 @@
-function [x,y,z]=grdread2(file);
+function [X,Y,Z]=grdread2(file);
 %GRDREAD2  Load a GMT grdfile (netcdf format)
 %
 % Uses NetCDF libraries to load a GMT grid file.
@@ -66,30 +66,30 @@ end
 [ndims,nvars,ngatts,unlimdimid] = netcdf.inq(ncid);
 
 if (nvars==3),                        % new (v4) GMT netCDF grid file
-  x=netcdf.getVar(ncid,0)';   
-  y=netcdf.getVar(ncid,1)';
-  z=netcdf.getVar(ncid,2)';
+  X=netcdf.getVar(ncid,0)';   
+  Y=netcdf.getVar(ncid,1)';
+  Z=netcdf.getVar(ncid,2)';
 else
   if (nvars==6),                        % old (v3) GMT netCDF grid file
     [dimname, dimlen] = netcdf.inqDim(ncid,1);
     if (dimname=='xysize'),             % make sure it really is v3 netCDF
       xrange=netcdf.getVar(ncid,0)';
       yrange=netcdf.getVar(ncid,1)';
-      z=netcdf.getVar(ncid,5);
+      Z=netcdf.getVar(ncid,5);
       dim=netcdf.getVar(ncid,4)';
       pixel=netcdf.getAtt(ncid,5,'node_offset');
       if pixel,                         % pixel node registered
         dx=diff(xrange)/double(dim(1)); % convert int to double for division
         dy=diff(yrange)/double(dim(2));
-        x=xrange(1)+dx/2:dx:xrange(2)-dx/2; % convert to gridline registered
-        y=yrange(1)+dy/2:dy:yrange(2)-dy/2;
+        X=xrange(1)+dx/2:dx:xrange(2)-dx/2; % convert to gridline registered
+        Y=yrange(1)+dy/2:dy:yrange(2)-dy/2;
       else                              % gridline registered
         dx=diff(xrange)/double(dim(1)-1); % convert int to double for division
         dy=diff(yrange)/double(dim(2)-1);
-        x=xrange(1):dx:xrange(2);
-        y=yrange(1):dy:yrange(2);
+        X=xrange(1):dx:xrange(2);
+        Y=yrange(1):dy:yrange(2);
       end
-      z=flipud(reshape(z,dim(1),dim(2))');
+      Z=flipud(reshape(Z,dim(1),dim(2))');
     else
       error('Apparently not a GMT netCDF grid');
     end
@@ -102,11 +102,11 @@ netcdf.close(ncid)
 
 switch nargout
   case 1,double
-    varargout{1}=z;  
+    varargout{1}=Z;  
   case 3,
-    varargout{1}=x;
-    varargout{2}=y;
-    varargout{3}=z;
+    varargout{1}=X;
+    varargout{2}=Y;
+    varargout{3}=Z;
   otherwise
     error('grdread2: Incorrect # of output arguments!');
 end
