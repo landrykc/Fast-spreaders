@@ -40,11 +40,46 @@ MAR_dist = MAR_depth_data.Dist(MAR_max_index);
 % figure
 % plot(MAR_depth_data.Dist, MAR_depth_data.Depth)
 
+%% Slope
+
+% EPR
+
+EPR_PfitL = polyfit(EPR_depth_data.Dist(1:EPR_max_index),EPR_smooth(1:EPR_max_index),1);
+
+EPR_slopeL = EPR_PfitL(1);
+EPR_interceptL = EPR_PfitL(2);
+
+EPR_polyvalL = (polyval(EPR_PfitL,EPR_depth_data.Dist(1:EPR_max_index)))/1000;
+% divide by 1000 to convert to km
+
+%now for the right side of the ridge
+
+EPR_PfitR = polyfit(EPR_depth_data.Dist(EPR_max_index:end),EPR_smooth(EPR_max_index:end),1);
+
+EPR_slopeR = EPR_PfitR(1);
+EPR_interceptR = EPR_PfitR(2);
+
+EPR_polyvalR = (polyval(EPR_PfitR,EPR_depth_data.Dist(EPR_max_index:end)))/1000;
+
+EPR_slope_avg = (EPR_slopeL + (-1.*EPR_slopeR))/2;
+
+% MAR
+
+MAR_Pfit = polyfit(MAR_depth_data.Dist(1:MAR_max_index),MAR_smooth(1:MAR_max_index),1);
+
+MAR_slope = MAR_Pfit(1);
+MAR_intercept = MAR_Pfit(2);
+
+MAR_polyval = (polyval(MAR_Pfit,MAR_depth_data.Dist(1:MAR_max_index)))/1000;
 %% Transects for EPR & MAR
 
 figure
 subplot(2,1,1)
 plot(EPR_depth_data.Dist, abs(EPR_smooth/1000))
+hold on
+plot(EPR_depth_data.Dist(1:EPR_max_index),(-1.*EPR_polyvalL),'g')
+hold on
+plot(EPR_depth_data.Dist(EPR_max_index:end),(-1.*EPR_polyvalR),'m')
 set(gca, 'YDir', 'reverse')
 xline(EPR_dist, ':')
 xlim([EPR_dist-50*5 EPR_dist+50*5])
@@ -56,6 +91,8 @@ title('EPR')
 
 subplot(2,1,2)
 plot(MAR_depth_data.Dist, abs(MAR_smooth/1000))
+hold on
+plot(MAR_depth_data.Dist(1:MAR_max_index),(-1.*MAR_polyval),'g')
 set(gca, 'YDir', 'reverse')
 xline(MAR_dist, ':')
 xlim([MAR_dist-50*5 MAR_dist+50*5])
@@ -66,10 +103,4 @@ xticks(MAR_dist-50*4:50:MAR_dist+50*4)
 xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('MAR')
 
-%% Slope
-
-% EPR
-
-
-% MAR
 
