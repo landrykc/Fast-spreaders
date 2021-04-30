@@ -12,7 +12,7 @@
 % clear
 % clc
 
-load all_data.mat EPR_depth_data MAR_depth_data
+% load all_data 4.mat EPR_depth_data MAR_depth_data
 
 % EPR_depth_data & MAR_depth_data
 %       Lon
@@ -63,6 +63,7 @@ EPR_polyvalR = (polyval(EPR_PfitR,EPR_depth_data.Dist(EPR_max_index:end)))/1000;
 
 EPR_slope_avg = (EPR_slopeL + (-1.*EPR_slopeR))/2;
 
+%%
 % Left side of MAR
 
 MAR_PfitL = polyfit(MAR_depth_data.Dist(1:MAR_max_index),MAR_smooth(1:MAR_max_index),1);
@@ -74,14 +75,14 @@ MAR_polyvalL = (polyval(MAR_PfitL,MAR_depth_data.Dist(1:MAR_max_index)))/1000;
 
 %Right side of MAR
 
-MAR_PfitR = polyfit(MAR_depth_data.Dist(MAR_max_index:end),MAR_smooth(1:EPR_max_index:end));
+MAR_PfitR = polyfit(MAR_depth_data.Dist(MAR_max_index:end),MAR_smooth(MAR_max_index:end),1);
 
 MAR_slopeR = MAR_PfitR(1);
 MAR_interceptR = MAR_PfitR(2);
 
-MAR_polyvalR = (plyval(MAR_PfitR,MAR_depth_data.Dist(1:MAR_max_index)))/1000;
+MAR_polyvalR = (polyval(MAR_PfitR,MAR_depth_data.Dist(MAR_max_index:end)))/1000;
 
-MAR_slope_avg = (MAR_slopeL + (-1.*MAR_slopeR))/2
+MAR_slope_avg = (MAR_slopeL + (-1.*MAR_slopeR))/2;
 
 %% Transects for EPR & MAR
 

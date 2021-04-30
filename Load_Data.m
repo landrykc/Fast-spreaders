@@ -63,10 +63,10 @@ EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'km', 'm'};
 % NEW Transects
 
 % EPR
-EPR_transect_new = readtable('EPR_transect_new.xlsx');
-
-% MAR
-MAR_transect_new = readtable('MAR_transect_new.xlsx');
+% EPR_transect_new = readtable('EPR_transect_new.xlsx');
+% 
+% % MAR
+% MAR_transect_new = readtable('MAR_transect_new.xlsx');
 
 % These 'new' tables look similar to EPR_depth_data/MAR_depth_data (generated in the previous section)
 
@@ -106,10 +106,10 @@ MAR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_MAR.x
 % Database: IODP, collected on Geomapapp
 
 % EPR
-EPR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_EPR.xls');
-
-% MAR
-MAR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_MAR.xlsx');
+% EPR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_EPR.xls');
+% 
+% % MAR
+% MAR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_MAR.xlsx');
 
 %% Load Earthquake Data
 % Databse: USGS, collected on Geomapapp
