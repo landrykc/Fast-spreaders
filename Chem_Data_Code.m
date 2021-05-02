@@ -15,8 +15,8 @@
 
 %% Chem Data
 
-% clear
-% clc
+clear
+clc
 
 load all_data.mat EPR_Chem_extract MAR_Chem_extract
 
@@ -138,4 +138,63 @@ xlim([40 60])
 xlabel('SiO_2')
 hold off
 
-%% 
+%% Average Composition
+
+% EPR
+EPR_meanSiO2 = mean(EPR_Chem_extract.SiO2);
+EPR_meanAl2O3 = mean(EPR_Chem_extract.Al2O3);
+EPR_meanMgO = mean(EPR_Chem_extract.MgO);
+EPR_meanCaO = mean(EPR_Chem_extract.CaO);
+EPR_meanNa2O = mean(EPR_Chem_extract.Na2O);
+EPR_meanK2O = mean(EPR_Chem_extract.K2O);
+EPR_meanOthers = 100 - (EPR_meanSiO2+EPR_meanAl2O3+EPR_meanMgO+EPR_meanCaO+EPR_meanNa2O+EPR_meanK2O);
+
+EPR_meanComposition = [EPR_meanSiO2;
+    EPR_meanAl2O3;
+    EPR_meanMgO;
+    EPR_meanCaO;
+    EPR_meanNa2O+EPR_meanK2O;
+    EPR_meanOthers];
+
+% MAR
+MAR_meanSiO2 = mean(MAR_Chem_extract.SiO2);
+MAR_meanAl2O3 = mean(MAR_Chem_extract.Al2O3);
+MAR_meanMgO = mean(MAR_Chem_extract.MgO);
+MAR_meanCaO = mean(MAR_Chem_extract.CaO);
+MAR_meanNa2O = mean(MAR_Chem_extract.Na2O);
+MAR_meanK2O = mean(MAR_Chem_extract.K2O);
+MAR_meanOthers = 100 - (MAR_meanSiO2+MAR_meanAl2O3+MAR_meanMgO+MAR_meanCaO+MAR_meanNa2O+MAR_meanK2O);
+
+MAR_meanComposition = [MAR_meanSiO2;
+    MAR_meanAl2O3;
+    MAR_meanMgO;
+    MAR_meanCaO;
+    MAR_meanNa2O+MAR_meanK2O;
+    MAR_meanOthers];
+
+% Plot
+EPR_labels = {['SiO_2 (' num2str(EPR_meanSiO2,3) ' %)'];
+    ['Al_2O_3 (' num2str(EPR_meanAl2O3,3) ' %)'];
+    ['MgO (' num2str(EPR_meanMgO,3) ' %)'];
+    ['CaO (' num2str(EPR_meanCaO,3) ' %)'];
+    ['Na_2O + K_2O (' num2str(EPR_meanNa2O+EPR_meanK2O,3) ' %)'];
+    ['Others: Fe, Ti, ... (' num2str(EPR_meanOthers,3) ' %)']};
+MAR_labels = {['SiO_2 (' num2str(MAR_meanSiO2,3) ' %)'];
+    ['Al_2O_3 (' num2str(MAR_meanAl2O3,3) ' %)'];
+    ['MgO (' num2str(MAR_meanMgO,3) ' %)'];
+    ['CaO (' num2str(MAR_meanCaO,3) ' %)'];
+    ['Na_2O + K_2O (' num2str(MAR_meanNa2O+EPR_meanK2O,3) ' %)'];
+    ['Others: Fe, Ti, ... (' num2str(MAR_meanOthers,3) ' %)']};
+explode = [1,0,0,0,0,0];
+
+figure % EPR
+pie(EPR_meanComposition, explode, EPR_labels)
+set(gca, 'Colormap', lines)
+title('Average Composition - EPR')
+
+figure % MAR
+pie(MAR_meanComposition, explode, MAR_labels)
+set(gca, 'Colormap', lines)
+title('Average Composition - MAR')
+
+%% End

@@ -60,16 +60,6 @@ MAR_transect = readtable('MAR_transect.txt');
 MAR_transect.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'Depth'};
 EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'km', 'm'};
 
-% NEW Transects
-
-% EPR
-% EPR_transect_new = readtable('EPR_transect_new.xlsx');
-% 
-% % MAR
-% MAR_transect_new = readtable('MAR_transect_new.xlsx');
-
-% These 'new' tables look similar to EPR_depth_data/MAR_depth_data (generated in the previous section)
-
 %% Load Density Files
 % Database: IODP
 
@@ -100,16 +90,6 @@ EPR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_EPR.x
 
 % MAR
 MAR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_MAR.xlsx');
-
-%% Load Core Depth Data 
-% We may want different depth data idk
-% Database: IODP, collected on Geomapapp
-
-% EPR
-% EPR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_EPR.xls');
-% 
-% % MAR
-% MAR_Core_Data = readtable('Measurements_on_Cores_DSDP_ODP_and_IODP_Legs_1_to_312_MAR.xlsx');
 
 %% Load Earthquake Data
 % Databse: USGS, collected on Geomapapp
@@ -147,9 +127,6 @@ clear opts
 %       CaO
 %       Na2O
 %       K2O
-
-% What type of Fe minerals do we need?
-% Original data have FeO/FeOT/Fe2O3/Fe2O3T
 
 % EPR
 EPR_Chem_Data = readtable('EastPacificRise_ALL_CHEM_DATA.xlsx', 'Sheet', 'Data');
@@ -195,15 +172,4 @@ MAR_Chem_extract = rmmissing(MAR_Chem_extract); % remove missing values
 
 % Rerun this step if updated
 
-%% NC files
-
-
-
-[MAR_Lon,MAR_Lat,MAR_Depth]=grdread2('MAR_all_data1.nc');
-
-
-imagesc(MAR_Lon,MAR_Lat,MAR_Depth)
-
-
-
-
+%% End

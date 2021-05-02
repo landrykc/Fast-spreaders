@@ -12,7 +12,7 @@
 % clear
 % clc
 
-% load all_data 4.mat EPR_depth_data MAR_depth_data
+load all_data.mat EPR_depth_data MAR_depth_data
 
 % EPR_depth_data & MAR_depth_data
 %       Lon
@@ -117,5 +117,7 @@ ylabel('Depth (km)')
 xticks(MAR_dist-50*4:50:MAR_dist+50*4)
 xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('MAR')
+
+%% Gravity Anomaly?
 
 
