@@ -117,7 +117,67 @@ ylabel('Depth (km)')
 xticks(MAR_dist-50*4:50:MAR_dist+50*4)
 xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('MAR')
+%% EPR depth, Free Air, Magnetic, and Gravity Anomaly
 
-%% Gravity Anomaly?
+figure
+subplot(4,1,1)
+plot(EPR_depth_data.Dist, abs(EPR_smooth/1000))
+hold on
+set(gca, 'YDir', 'reverse')
+xline(EPR_dist, ':')
+xlim([EPR_dist-50*5 EPR_dist+50*5])
+ylim([2.5 4.5])
+ylabel('Depth (km)')
+xticks(EPR_dist-50*4:50:EPR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
+title('EPR')
+
+subplot(4,1,2)
+plot(EPR_depth_data.Dist, EPR_depth_data.FAA)
+xlim([EPR_dist-50*5 EPR_dist+50*5])
+ylabel('Free Air Anomaly')
+
+subplot(4,1,3)
+plot(EPR_depth_data.Dist, EPR_depth_data.MA)
+xlim([EPR_dist-50*5 EPR_dist+50*5])
+ylabel('Magnetic Anomaly')
+
+subplot(4,1,4)
+plot(EPR_depth_data.Dist, EPR_depth_data.GA)
+xlim([EPR_dist-50*5 EPR_dist+50*5])
+xlabel('Distance from ridge axis (km)')
+ylabel('Gravity Anomaly')
+
+
+%% MAR depth, Free Air, Magnetic, and Gravity Anomaly
+
+figure
+subplot(4,1,1)
+plot(MAR_depth_data.Dist, abs(MAR_smooth/1000))
+hold on
+set(gca, 'YDir', 'reverse')
+xline(MAR_dist, ':')
+xlim([MAR_dist-50*5 MAR_dist+50*5])
+ylim([2.5 4.5])
+ylabel('Depth (km)')
+xticks(MAR_dist-50*4:50:MAR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
+title('MAR')
+
+subplot(4,1,2)
+plot(MAR_depth_data.Dist, MAR_depth_data.FAA)
+xlim([MAR_dist-50*5 MAR_dist+50*5])
+ylabel('Free Air Anomaly')
+
+subplot(4,1,3)
+plot(MAR_depth_data.Dist, MAR_depth_data.MA)
+xlim([MAR_dist-50*5 MAR_dist+50*5])
+ylabel('Magnetic Anomaly')
+
+subplot(4,1,4)
+plot(MAR_depth_data.Dist, MAR_depth_data.GA)
+xlim([MAR_dist-50*5 MAR_dist+50*5])
+xlabel('Distance from ridge axis (km)')
+ylabel('Gravity Anomaly')
 
 
