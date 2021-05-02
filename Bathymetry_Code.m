@@ -24,17 +24,16 @@ set(gca,'DataAspectRatio',[1 1 1])
 colorbar
 
 
-%%
 
 
 
 
 %% MAR
 
-[X_MAR, Y_MAR, Z_MAR] = grdread2('MAR_all_data1.nc');
+[MAR_Lon, MAR_Lat, MAR_Depth] = grdread2('MAR_all_data1.nc');
 
 figure
-imagesc(X_MAR, Y_MAR, Z_MAR)
+imagesc(MAR_Lon, MAR_Lat, MAR_Depth)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
 colorbar

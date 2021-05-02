@@ -1,6 +1,6 @@
 
 %% Read Data
-[X,Y,Z]=grdread2('Hayes.nc');
+%[X,Y,Z]=grdread2('MAR_all_dat.1.nc');
 
 %% Plot Bathymetry Map
 figure(1)

@@ -195,4 +195,15 @@ MAR_Chem_extract = rmmissing(MAR_Chem_extract); % remove missing values
 
 % Rerun this step if updated
 
-%% (Additional Data)
+%% NC files
+
+
+
+[MAR_Lon,MAR_Lat,MAR_Depth]=grdread2('MAR_all_data1.nc');
+
+
+imagesc(MAR_Lon,MAR_Lat,MAR_Depth)
+
+
+
+
