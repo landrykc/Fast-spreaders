@@ -196,5 +196,23 @@ figure % MAR
 pie(MAR_meanComposition, explode, MAR_labels)
 set(gca, 'Colormap', lines)
 title('Average Composition - MAR')
-
 %% End
+
+%% Average and Standard deviation
+%EPR
+EPR_stdSiO2 = std(EPR_Chem_extract.SiO2);
+EPR_stdAl2O3 = std(EPR_Chem_extract.Al2O3);
+EPR_stdMgO = std(EPR_Chem_extract.MgO);
+EPR_stdCaO = std(EPR_Chem_extract.CaO);
+EPR_stdNa2O = std(EPR_Chem_extract.Na2O);
+EPR_stdK2O = std(EPR_Chem_extract.K2O);
+
+%MAR
+MAR_stdSiO2 = std(MAR_Chem_extract.SiO2);
+MAR_stdAl2O3 = std(MAR_Chem_extract.Al2O3);
+MAR_stdMgO = std(MAR_Chem_extract.MgO);
+MAR_stdCaO = std(MAR_Chem_extract.CaO);
+MAR_stdNa2O = std(MAR_Chem_extract.Na2O);
+MAR_stdK2O = std(MAR_Chem_extract.K2O);
+
+
