@@ -215,4 +215,22 @@ MAR_stdCaO = std(MAR_Chem_extract.CaO);
 MAR_stdNa2O = std(MAR_Chem_extract.Na2O);
 MAR_stdK2O = std(MAR_Chem_extract.K2O);
 
+%% Test (Change Color and Plot More!)
 
+figure
+plot(EPR_Chem_extract.SiO2, EPR_Chem_extract.MgO,'r.')
+hold on
+e1 = errorbar(EPR_meanSiO2, EPR_meanMgO, EPR_stdSiO2, 'horizontal');
+e1.Marker = '.';
+e1.MarkerSize = 30;
+e1.Color = 'blue';
+e2 = errorbar(EPR_meanSiO2, EPR_meanMgO, EPR_stdMgO, 'vertical');
+e2.Marker = '.';
+e2.MarkerSize = 30;
+e2.Color = 'blue';
+ylabel('MgO')
+ylim([0 50])
+yticks([0 25 50])
+xlim([40 60])
+title('EPR')
+hold off
