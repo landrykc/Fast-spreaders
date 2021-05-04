@@ -277,7 +277,6 @@ e2.Marker = '.';
 e2.MarkerSize = 30;
 e2.Color = ColorBarMAR;
 e2.LineWidth = 1.5;
-ylabel('MgO')
 ylim([0 50])
 yticks([0 25 50])
 xlim([40 60])

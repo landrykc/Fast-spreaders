@@ -22,6 +22,8 @@ addpath('Data Files')
 
 figure
 imagesc(EPR_Lon, EPR_Lat, EPR_Depth)
+hold on
+plot(EPR_depth_data.Lon, EPR_depth_data.Lat,'LineWidth',2,'Color',ColorEPR)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
 cmocean('-deep')
@@ -36,6 +38,8 @@ xticklabels({'110°W','108°W','106°W','104°W','102°W','100°W','98°W'})
 
 figure
 imagesc(MAR_Lon, MAR_Lat, MAR_Depth)
+hold on
+plot(MAR_depth_data.Lon, MAR_depth_data.Lat,'LineWidth',2,'Color',ColorEPR)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
 cmocean('-deep')

@@ -88,11 +88,11 @@ MAR_slope_avg = (MAR_slopeL + (-1.*MAR_slopeR))/2;
 
 figure
 subplot(2,1,1)
-plot(EPR_depth_data.Dist, abs(EPR_smooth/1000))
+plot(EPR_depth_data.Dist, abs(EPR_smooth/1000),'Color',ColorEPR,'LineWidth',3)
 hold on
-plot(EPR_depth_data.Dist(1:EPR_max_index),(-1.*EPR_polyvalL),'g')
+plot(EPR_depth_data.Dist(1:EPR_max_index),(-1.*EPR_polyvalL),'Color',ColorBarEPR,'LineWidth',1)
 hold on
-plot(EPR_depth_data.Dist(EPR_max_index:end),(-1.*EPR_polyvalR),'m')
+plot(EPR_depth_data.Dist(EPR_max_index:end),(-1.*EPR_polyvalR),'Color',ColorBarEPR,'LineWidth',1)
 set(gca, 'YDir', 'reverse')
 xline(EPR_dist, ':')
 xlim([EPR_dist-50*5 EPR_dist+50*5])
@@ -103,11 +103,11 @@ xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('EPR')
 
 subplot(2,1,2)
-plot(MAR_depth_data.Dist, abs(MAR_smooth/1000))
+plot(MAR_depth_data.Dist, abs(MAR_smooth/1000),'Color',ColorMAR,'LineWidth',3)
 hold on
-plot(MAR_depth_data.Dist(1:MAR_max_index),(-1.*MAR_polyvalL),'g')
+plot(MAR_depth_data.Dist(1:MAR_max_index),(-1.*MAR_polyvalL),'Color',ColorBarMAR,'LineWidth',1)
 hold on
-plot(MAR_depth_data.Dist(MAR_max_index:end),(-1.*MAR_polyvalR),'m')
+plot(MAR_depth_data.Dist(MAR_max_index:end),(-1.*MAR_polyvalR),'Color',ColorBarMAR,'LineWidth',1)
 set(gca, 'YDir', 'reverse')
 xline(MAR_dist, ':')
 xlim([MAR_dist-50*5 MAR_dist+50*5])
@@ -121,7 +121,7 @@ title('MAR')
 
 figure
 subplot(4,1,1)
-plot(EPR_depth_data.Dist, abs(EPR_smooth/1000))
+plot(EPR_depth_data.Dist, abs(EPR_smooth/1000),'Color',ColorEPR,'LineWidth',2)
 hold on
 set(gca, 'YDir', 'reverse')
 xline(EPR_dist, ':')
@@ -133,27 +133,33 @@ xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('EPR')
 
 subplot(4,1,2)
-plot(EPR_depth_data.Dist, EPR_depth_data.FAA)
+plot(EPR_depth_data.Dist, EPR_depth_data.FAA,'Color',ColorBarEPR,'LineWidth',2)
 xlim([EPR_dist-50*5 EPR_dist+50*5])
 ylabel('Free Air Anomaly')
+xticks(EPR_dist-50*4:50:EPR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 subplot(4,1,3)
-plot(EPR_depth_data.Dist, EPR_depth_data.MA)
+plot(EPR_depth_data.Dist, EPR_depth_data.MA,'Color',ColorBarEPR,'LineWidth',2)
 xlim([EPR_dist-50*5 EPR_dist+50*5])
 ylabel('Magnetic Anomaly')
+xticks(EPR_dist-50*4:50:EPR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 subplot(4,1,4)
-plot(EPR_depth_data.Dist, EPR_depth_data.GA)
+plot(EPR_depth_data.Dist, EPR_depth_data.GA,'Color',ColorBarEPR,'LineWidth',2)
 xlim([EPR_dist-50*5 EPR_dist+50*5])
 xlabel('Distance from ridge axis (km)')
 ylabel('Gravity Anomaly')
+xticks(EPR_dist-50*4:50:EPR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 
 %% MAR depth, Free Air, Magnetic, and Gravity Anomaly
 
 figure
 subplot(4,1,1)
-plot(MAR_depth_data.Dist, abs(MAR_smooth/1000))
+plot(MAR_depth_data.Dist, abs(MAR_smooth/1000),'Color',ColorMAR,'LineWidth',2)
 hold on
 set(gca, 'YDir', 'reverse')
 xline(MAR_dist, ':')
@@ -165,19 +171,25 @@ xticklabels({'200','150','100','50','0','50','100','150','200'})
 title('MAR')
 
 subplot(4,1,2)
-plot(MAR_depth_data.Dist, MAR_depth_data.FAA)
+plot(MAR_depth_data.Dist, MAR_depth_data.FAA,'Color',ColorBarMAR,'LineWidth',2)
 xlim([MAR_dist-50*5 MAR_dist+50*5])
 ylabel('Free Air Anomaly')
+xticks(MAR_dist-50*4:50:MAR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 subplot(4,1,3)
-plot(MAR_depth_data.Dist, MAR_depth_data.MA)
+plot(MAR_depth_data.Dist, MAR_depth_data.MA,'Color',ColorBarMAR,'LineWidth',2)
 xlim([MAR_dist-50*5 MAR_dist+50*5])
 ylabel('Magnetic Anomaly')
+xticks(MAR_dist-50*4:50:MAR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 subplot(4,1,4)
-plot(MAR_depth_data.Dist, MAR_depth_data.GA)
+plot(MAR_depth_data.Dist, MAR_depth_data.GA,'Color',ColorBarMAR,'LineWidth',2)
 xlim([MAR_dist-50*5 MAR_dist+50*5])
 xlabel('Distance from ridge axis (km)')
 ylabel('Gravity Anomaly')
+xticks(MAR_dist-50*4:50:MAR_dist+50*4)
+xticklabels({'200','150','100','50','0','50','100','150','200'})
 
 
