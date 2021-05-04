@@ -27,7 +27,8 @@ set(gca,'DataAspectRatio',[1 1 1])
 cmocean('-deep')
 colorbar('location','eastoutside')
 title('Bathymetric Map of the East Pacific Rise, Transect 9N')
-xticklabels({'12°N','11°N','10°N','9°N','8°N','7°N'})
+yticklabels({'7°N','8°N','9°N','10°N','11°N','12°N'})
+xticklabels({'110°W','108°W','106°W','104°W','102°W','100°W','98°W'})
 
 %% MAR
 
@@ -37,7 +38,11 @@ figure
 imagesc(MAR_Lon, MAR_Lat, MAR_Depth)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-colorbar
+cmocean('-deep')
+colorbar('location','eastoutside')
+title('Bathymetric Map of the Northern Mid-Atlantic Ridge')
+yticklabels({'22°N','24°N','26°N','28°N','30°N'})
+xticklabels({'55°W','50°W','45°W','40°W','35°W'})
 
 %% where are these transects anyway?
 
