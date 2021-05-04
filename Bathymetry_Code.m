@@ -24,7 +24,10 @@ figure
 imagesc(EPR_Lon, EPR_Lat, EPR_Depth)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-colorbar
+cmocean('-deep')
+colorbar('location','eastoutside')
+title('Bathymetric Map of the East Pacific Rise, Transect 9N')
+xticklabels({'12°N','11°N','10°N','9°N','8°N','7°N'})
 
 %% MAR
 
@@ -35,5 +38,9 @@ imagesc(MAR_Lon, MAR_Lat, MAR_Depth)
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
 colorbar
+
+%% where are these transects anyway?
+
+
 
 %% End

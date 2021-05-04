@@ -235,21 +235,28 @@ MAR_stdK2O = std(MAR_Chem_extract.K2O);
 % title('EPR')
 % hold off
 
+ColorEPR = [0.84 0.46 0];
+ColorMAR = [0.38 0.51 0.74];
+ColorBarEPR = [0.61 0.15 0.01];
+ColorBarMAR = [0.28 0.22 0.47];
+
 figure
 tiledlayout(5,2,'TileSpacing','compact') 
 
 % Tile 1 - R 1, C 1
 nexttile
-plot(EPR_Chem_extract.SiO2, EPR_Chem_extract.MgO,'r.')
+plot(EPR_Chem_extract.SiO2, EPR_Chem_extract.MgO,'.','Color',ColorEPR)
 hold on
 e1 = errorbar(EPR_meanSiO2, EPR_meanMgO, EPR_stdSiO2, 'horizontal');
 e1.Marker = '.';
-e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.MarkerSize = 25;
+e1.Color = ColorBarEPR;
+e1.LineWidth = 1.5;
 e2 = errorbar(EPR_meanSiO2, EPR_meanMgO, EPR_stdMgO, 'vertical');
 e2.Marker = '.';
-e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.MarkerSize = 25;
+e2.Color = ColorBarEPR;
+e2.LineWidth = 1.5;
 ylabel('MgO')
 ylim([0 50])
 yticks([0 25 50])
@@ -258,16 +265,18 @@ title('EPR')
 
 % Tile 2 - R 1, C 2
 nexttile
-plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.MgO,'.')
+plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.MgO,'.','Color',ColorMAR)
 hold on
 e1 = errorbar(MAR_meanSiO2, MAR_meanMgO, MAR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarMAR;
+e1.LineWidth = 1.5;
 e2 = errorbar(MAR_meanSiO2, MAR_meanMgO, MAR_stdMgO, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarMAR;
+e2.LineWidth = 1.5;
 ylabel('MgO')
 ylim([0 50])
 yticks([0 25 50])
@@ -276,49 +285,55 @@ title('MAR')
 
 % Tile 3 - R 2, C 1
 nexttile
-plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.K2O(index),'r.')
+plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.K2O(index),'.','Color',ColorEPR)
 ylabel('K_2O')
 hold on
 e1 = errorbar(EPR_meanSiO2, EPR_meanK2O, EPR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarEPR;
+e1.LineWidth = 1.5;
 e2 = errorbar(EPR_meanSiO2, EPR_meanK2O, EPR_stdK2O, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarEPR;
+e2.LineWidth = 1.5;
 ylim([0 2])
 xlim([40 60])
 set(gca,'Xticklabel',[])
 
 % Tile 4 - R 2, C 2
 nexttile
-plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.K2O, '.')
+plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.K2O,'.','Color',ColorMAR)
 hold on
 e1 = errorbar(MAR_meanSiO2, MAR_meanK2O, MAR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarMAR;
+e1.LineWidth = 1.5;
 e2 = errorbar(MAR_meanSiO2, MAR_meanK2O, MAR_stdK2O, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarMAR;
+e2.LineWidth = 1.5;
 ylim([0 2])
 xlim([40 60])
 set(gca,'Xticklabel',[])
 
 % Tile 5 - R 3, C 1
 nexttile
-plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.CaO(index),'r.');
+plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.CaO(index),'.','Color',ColorEPR)
 hold on
 e1 = errorbar(EPR_meanSiO2, EPR_meanCaO, EPR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarEPR;
+e1.LineWidth = 1.5;
 e2 = errorbar(EPR_meanSiO2, EPR_meanCaO, EPR_stdCaO, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarEPR;
+e2.LineWidth = 1.5;
 ylabel('CaO')
 ylim([0 20])
 xlim([40 60])
@@ -326,32 +341,36 @@ set(gca,'Xticklabel',[])
 
 % Tile 6 - R 3, C 2
 nexttile
-plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.CaO,'.');
+plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.CaO,'.','Color',ColorMAR)
 hold on
 e1 = errorbar(MAR_meanSiO2, MAR_meanCaO, MAR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarMAR;
+e1.LineWidth = 1.5;
 e2 = errorbar(MAR_meanSiO2, MAR_meanCaO, MAR_stdCaO, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarMAR;
+e2.LineWidth = 1.5;
 ylim([0 20])
 xlim([40 60])
 set(gca,'Xticklabel',[])
 
 % Tile 7 - R 4, C 1
 nexttile
-plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.Na2O(index),'r.');
+plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.Na2O(index),'.','Color',ColorEPR)
 hold on
 e1 = errorbar(EPR_meanSiO2, EPR_meanNa2O, EPR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarEPR;
+e1.LineWidth = 1.5;
 e2 = errorbar(EPR_meanSiO2, EPR_meanNa2O, EPR_stdNa2O, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarEPR;
+e2.LineWidth = 1.5;
 ylabel('Na_2O')
 yticks([0 2 4 6])
 ylim([0 6])
@@ -360,16 +379,18 @@ set(gca,'Xticklabel',[])
 
 % Tile 8 - R 4, C 2
 nexttile
-plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.Na2O,'.');
+plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.Na2O,'.','Color',ColorMAR)
 hold on
 e1 = errorbar(MAR_meanSiO2, MAR_meanNa2O, MAR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarMAR;
+e1.LineWidth = 1.5;
 e2 = errorbar(MAR_meanSiO2, MAR_meanNa2O, MAR_stdNa2O, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarMAR;
+e2.LineWidth = 1.5;
 yticks([0 2 4 6])
 ylim([0 6])
 xlim([40 60])
@@ -377,16 +398,18 @@ set(gca,'Xticklabel',[])
 
 % Tile 9 - R 5, C 1
 nexttile
-plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.Al2O3(index),'r.');
+plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.Al2O3(index),'.','Color',ColorEPR)
 hold on
 e1 = errorbar(EPR_meanSiO2, EPR_meanAl2O3, EPR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarEPR;
+e1.LineWidth = 1.5;
 e2 = errorbar(EPR_meanSiO2, EPR_meanAl2O3, EPR_stdAl2O3, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarEPR;
+e2.LineWidth = 1.5;
 ylabel('Al_2O_3')
 ylim([0 30])
 xlim([40 60])
@@ -394,17 +417,18 @@ xlabel('SiO_2')
 
 % Tile 10 - R 5, C 2
 nexttile
-plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.Al2O3,'.');
-plot(EPR_Chem_extract.SiO2(index), EPR_Chem_extract.Al2O3(index),'.');
+plot(MAR_Chem_extract.SiO2, MAR_Chem_extract.Al2O3,'.','Color',ColorMAR)
 hold on
 e1 = errorbar(MAR_meanSiO2, MAR_meanAl2O3, MAR_stdSiO2, 'horizontal');
 e1.Marker = '.';
 e1.MarkerSize = 30;
-e1.Color = 'blue';
+e1.Color = ColorBarMAR;
+e1.LineWidth = 1.5;
 e2 = errorbar(MAR_meanSiO2, MAR_meanAl2O3, MAR_stdAl2O3, 'vertical');
 e2.Marker = '.';
 e2.MarkerSize = 30;
-e2.Color = 'blue';
+e2.Color = ColorBarMAR;
+e2.LineWidth = 1.5;
 ylim([0 30])
 xlim([40 60])
 xlabel('SiO_2')
