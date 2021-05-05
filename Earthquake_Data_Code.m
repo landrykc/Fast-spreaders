@@ -51,7 +51,7 @@ hold on
 scatter(EPR_Earthquake_Data.Lon, EPR_Earthquake_Data.Lat,10,[0.9290 0.6940 0.1250],'filled')
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-cmocean('-deep','pivot',max(MAR_Depth,[],'all')) % same color scale as MAR
+cmocean('-deep')
 colorbar('location','eastoutside')
 title('M > 5 Epicenters (1960-2020) at the East Pacific Rise, Transect 9N')
 yticklabels({'7°N','8°N','9°N','10°N','11°N','12°N'})
@@ -62,10 +62,10 @@ hold off
 subplot(2,1,2)
 imagesc(MAR_Lon, MAR_Lat, MAR_Depth)
 hold on
-scatter(MAR_Earthquake_Data.Lon, MAR_Earthquake_Data.Lat,10,[0.3010 0.7450 0.9330],'filled')
+scatter(MAR_Earthquake_Data.Lon, MAR_Earthquake_Data.Lat,10,[0.4940 0.1840 0.5560],'filled')
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-cmocean('-deep','pivot',max(MAR_Depth,[],'all'))
+cmocean('-deep')
 colorbar('location','eastoutside')
 title('M > 5 Epicenters (1960-2020) at the Northern Mid-Atlantic Ridge')
 yticklabels({'22°N','24°N','26°N','28°N','30°N'})
