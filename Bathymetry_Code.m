@@ -27,7 +27,7 @@ hold on
 scatter(EPR_Chem_extract.Lon(index),EPR_Chem_extract.Lat(index),30,ColorEPR,'filled')
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-cmocean('-deep')
+cmocean('-deep','pivot',0)
 colorbar('location','eastoutside')
 title('Bathymetric Map of the East Pacific Rise, Transect 9N')
 yticklabels({'7°N','8°N','9°N','10°N','11°N','12°N'})
@@ -44,7 +44,7 @@ hold on
 scatter(MAR_Chem_extract.Lon(index),MAR_Chem_extract.Lat(index),30,[0.85 0.47 0.89],'filled')
 axis xy
 set(gca,'DataAspectRatio',[1 1 1])
-cmocean('-deep')
+cmocean('-deep','pivot',0)
 colorbar('location','eastoutside')
 title('Bathymetric Map of the Northern Mid-Atlantic Ridge')
 yticklabels({'22°N','24°N','26°N','28°N','30°N'})
