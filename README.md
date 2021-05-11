@@ -11,12 +11,13 @@ Collaborators: [Kameko](https://github.com/landrykc), [Charlotte](https://github
 
 ### Data Sources
 
-All of the data tables are directly exported from the software [GeoMapApp](http://www.geomapapp.org/), which is an one-stop portal for geoscience data.
+All of the data tables are directly exported from the software [GeoMapApp](http://www.geomapapp.org/), which is an one-stop portal for geoscience data. 
 
 Geologic datasets (original sources)
-- Bathymetry: [GMRT v3.9](https://www.gmrt.org/)
+
+- Ocean Bathymetry: [GMRT v3.9](https://www.gmrt.org/)
 - Earthquake Catalog: [USGS](https://earthquake.usgs.gov/earthquakes/search/#data)
-- GeoChem: [PetDB](https://search.earthchem.org/)
+- Geochemical Data: [PetDB](https://search.earthchem.org/)
 
 ### Scripts and Functions (MATLAB)
 
@@ -31,12 +32,18 @@ Geologic datasets (original sources)
 - `Earthquake_Data_Code.m` - This script creates maps of earthquake locations as well as associated magnitude distribution.
 - `Chem_Data_Code.m` - This script generates Harker Diagrams to visualize various geochemical datasets and computes average chemical  composition.
 
-#### Auxiliary Function(s)
+#### Auxiliary Functions
 
 - `grdread2.m` - This function reshapes the raw netCDF files for bathymetry that are directly exported from GeoMapApp. Thank our colleague [Emma](https://github.com/woodfordej) for sharing such a useful function.
 - `cmocean.m` - This function is required to use visually better colormaps for bathymetry plots. This function is not explicitly included in this repository, but can be found [here](https://github.com/BC-EESC4464-SP21/Common-functions). You may need to add this function to your MATLAB searching path.
 
+#### Figures
+
+The figures contained in the folder `./Figures` are the direct output of those scripts described above. 
+
 ### Usage
 
 All code in this repository is in the form of simple Matlab scripts and functions, which can be run in MATLAB with one click. If you run into any errors or have any questions, please contact us: [Kameko](mailto:landrykc@bc.edu), [Charlotte](mailto:lorthioi@bc.edu), [Skylar](mailto:goliber@bc.edu), [Adam](mailto:wangagk@bc.edu).
+
+<!-- Last Updated: May, 2021-->
 
