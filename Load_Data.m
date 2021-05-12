@@ -111,7 +111,7 @@ EPR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude
 EPR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
 
 % MAR
-MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx', opts);
+MAR_Earthquake_Data = readtable('NEW_5.xlsx', opts);
 MAR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude', 'Depth'};
 MAR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
 
