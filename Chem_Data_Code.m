@@ -30,6 +30,12 @@ load all_data.mat EPR_Chem_extract MAR_Chem_extract
 %       Na2O
 %       K2O
 
+% Color scheme
+ColorEPR = [0.84 0.46 0];
+ColorMAR = [0.38 0.51 0.74];
+ColorBarEPR = [0.61 0.15 0.01];
+ColorBarMAR = [0.28 0.22 0.47];
+
 %% Data check
 
 % Remove obvious data outliers, defined as SiO2 < 1
@@ -194,15 +200,10 @@ bar_labels = {'SiO_2';
 figure
 b = bar([EPR_meanComposition MAR_meanComposition]);
 hold on
-
-% get the x coordinate of the bars
-x = NaN(2,6); % 2 bars, 6 groups
-for i = 1:2
-    x(i,:) = b(i).XEndPoints;
-end
-% plot the errorbars
-errorbar(x',[EPR_meanComposition MAR_meanComposition],[EPR_error MAR_error],'k','linestyle','none')
-
+errorbar(b(1).XEndPoints',EPR_meanComposition,EPR_error,'k','LineStyle','none')
+errorbar(b(2).XEndPoints',MAR_meanComposition,MAR_error,'k','LineStyle','none')
+b(1).FaceColor = ColorEPR;
+b(2).FaceColor = ColorMAR;
 xlabel('Elements')
 xticklabels(bar_labels)
 ylabel('Mean composition (wt %)')
@@ -210,11 +211,6 @@ title('Average Chemical Composition of EPR and MAR')
 legend('EPR Mean', 'MAR Mean', 'Standard Error')
 
 %% Harker Diagrams (with Std)
-
-ColorEPR = [0.84 0.46 0];
-ColorMAR = [0.38 0.51 0.74];
-ColorBarEPR = [0.61 0.15 0.01];
-ColorBarMAR = [0.28 0.22 0.47];
 
 figure
 tiledlayout(5,2,'TileSpacing','compact')
