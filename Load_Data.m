@@ -60,36 +60,19 @@ MAR_transect = readtable('MAR_transect.txt');
 MAR_transect.Properties.VariableNames = {'Lon', 'Lat', 'Dist', 'Depth'};
 EPR_transect.Properties.VariableUnits = {'deg', 'deg', 'km', 'm'};
 
-%% Load Density Files
+%% Load Density Files & P-Wave Velocity Files
 % Database: IODP
+% Collected, but not being used
 
 % EPR - Leg 138 & 201
 EPR_density_138 = readtable('Leg_138_density_EPR.csv');
 EPR_density_201 = readtable('Leg_201_density_EPR.csv');
-
-% MAR - Leg 306
-MAR_density_306 = readtable('Leg_306_density_MAR.csv');
-
-%% Load P-Wave Velocity Files
-% Do we want s-wave too?
-% Database: IODP
-
-% EPR - Leg 138 & 201
 EPR_PWV_138 = readtable('Leg_138_PWV_EPR.csv');
 EPR_PWV_201 = readtable('Leg_201_PWV_EPR.csv');
 
 % MAR - Leg 306
+MAR_density_306 = readtable('Leg_306_density_MAR.csv');
 MAR_PWV_306 = readtable('Leg_306_PWV_MAR.csv');
-
-%% Load Heat Flow Data
-% Rate of thermal energy transfer
-% Collected on Geomapapp, I can't actually find a database for this one
-
-% EPR
-EPR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_EPR.xlsx');
-
-% MAR
-MAR_Heat_Flow_Data = readtable('Global_Heat_Flow_Data_-_Abbott_Compilation_MAR.xlsx');
 
 %% Load Earthquake Data
 % Databse: USGS, collected on Geomapapp
@@ -111,7 +94,7 @@ EPR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude
 EPR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
 
 % MAR
-MAR_Earthquake_Data = readtable('NEW_5.xlsx', opts);
+MAR_Earthquake_Data = readtable('Magnitude_5.0_(1960-2020)_MAR.xlsx', opts);
 MAR_Earthquake_Data.Properties.VariableNames = {'Time', 'Lat', 'Lon', 'Magnitude', 'Depth'};
 MAR_Earthquake_Data.Properties.VariableUnits = {'', 'deg', 'deg', '', 'km'};
 

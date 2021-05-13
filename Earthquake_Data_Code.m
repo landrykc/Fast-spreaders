@@ -101,39 +101,34 @@ title('MAR M > 5 Earthquake Distribution (1960-2020)')
 
 %% Average Magnitude and Standard Deviations
 
+% EPR
+% mean magnitude
 EPR_mag_avg = mean(EPR_Earthquake_Data.Magnitude);
-
+% std of magnitude
 EPR_mag_std = std(EPR_Earthquake_Data.Magnitude);
 
+% MAR
+% mean magnitude
 MAR_mag_avg = mean(MAR_Earthquake_Data.Magnitude);
-
+% std of magnitude
 MAR_mag_std = std(MAR_Earthquake_Data.Magnitude);
 
 %% Area of Study
 
+% EPR
+% longitude boundary
 EPR_max_lon = max(EPR_Earthquake_Data.Lon);
-
 EPR_min_lon = min(EPR_Earthquake_Data.Lon);
-
-
+% latitude boundary
 EPR_max_lat = max(EPR_Earthquake_Data.Lat);
-
 EPR_min_lat = min(EPR_Earthquake_Data.Lat);
 
-
+% MAR
+% longitude boundary
 MAR_max_lon = max(MAR_Earthquake_Data.Lon);
-
 MAR_min_lon = min(MAR_Earthquake_Data.Lon);
-
-
+% latitude boundary
 MAR_max_lat = max(MAR_Earthquake_Data.Lat);
-
 MAR_min_lat = min(MAR_Earthquake_Data.Lat);
 
-
 %% End
-
-
-
-
-
