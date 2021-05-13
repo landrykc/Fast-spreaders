@@ -11,11 +11,7 @@ Collaborators: [Kameko](https://github.com/landrykc), [Charlotte](https://github
 
 ### Data Sources
 
-All of the data tables are directly exported from the software [GeoMapApp](http://www.geomapapp.org/), which is a one-stop portal for geoscience data. 
-
-Geologic datasets (original sources)
-
-- Ocean Bathymetry: [GMRT v3.9](https://www.gmrt.org/)
+- Ocean Bathymetry: [GMRT v3.9](https://www.gmrt.org/) via [GeoMapApp](http://www.geomapapp.org/)
 - Earthquake Information: [USGS Catalog](https://earthquake.usgs.gov/earthquakes/search/#data)
 - Geochemical Data Compilation: [PetDB | EarthChem](https://search.earthchem.org/)
 
@@ -39,11 +35,11 @@ Geologic datasets (original sources)
 
 #### Figures
 
-The figures contained in the folder `./Figures` are the direct output of those scripts described above. 
+The figures contained in the folder `./Figures` are the direct output of those scripts described above. The filenames of the figures should give you a clue about their origin. 
 
 ### Usage
 
-All code in this repository is in the form of simple Matlab scripts and functions, which can be run in MATLAB with one click. If you run into any errors or have any questions, please contact us: [Kameko](mailto:landrykc@bc.edu), [Charlotte](mailto:lorthioi@bc.edu), [Skylar](mailto:goliber@bc.edu), [Adam](mailto:wangagk@bc.edu).
+All code in this repository is in the form of simple Matlab scripts and functions, which can be run in MATLAB with one click. Detailed information is also provided inside each script. If you run into any errors or have any questions, please contact us: [Kameko](mailto:landrykc@bc.edu), [Charlotte](mailto:lorthioi@bc.edu), [Skylar](mailto:goliber@bc.edu), [Adam](mailto:wangagk@bc.edu).
 
 <!-- Last Updated: May, 2021 -->
 
