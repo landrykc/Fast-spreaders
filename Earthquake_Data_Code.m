@@ -111,24 +111,24 @@ MAR_mag_std = std(MAR_Earthquake_Data.Magnitude);
 
 %% Area of Study
 
-EPR_max_lon = max(EPR_Earthquake_Data.Lon)
+EPR_max_lon = max(EPR_Earthquake_Data.Lon);
 
-EPR_min_lon = min(EPR_Earthquake_Data.Lon)
-
-
-EPR_max_lat = max(EPR_Earthquake_Data.Lat)
-
-EPR_min_lat = min(EPR_Earthquake_Data.Lat)
+EPR_min_lon = min(EPR_Earthquake_Data.Lon);
 
 
-MAR_max_lon = max(MAR_Earthquake_Data.Lon)
+EPR_max_lat = max(EPR_Earthquake_Data.Lat);
 
-MAR_min_lon = min(MAR_Earthquake_Data.Lon)
+EPR_min_lat = min(EPR_Earthquake_Data.Lat);
 
 
-MAR_max_lat = max(MAR_Earthquake_Data.Lat)
+MAR_max_lon = max(MAR_Earthquake_Data.Lon);
 
-MAR_min_lat = min(MAR_Earthquake_Data.Lat)
+MAR_min_lon = min(MAR_Earthquake_Data.Lon);
+
+
+MAR_max_lat = max(MAR_Earthquake_Data.Lat);
+
+MAR_min_lat = min(MAR_Earthquake_Data.Lat);
 
 
 %% End
